@@ -9,13 +9,14 @@ RUN tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
 ENV PATH="/usr/local/go/bin/:${PATH}"
 
 # Install prereqs for zeromq
-RUN yum install libtool gcc gcc-c++ make -y
+RUN yum install libtool gcc gcc-c++ make -y > /dev/null
 
 # Install zeromq
 RUN cd /opt/
 RUN curl -LOs https://github.com/zeromq/zeromq4-1/releases/download/v4.1.5/zeromq-4.1.5.tar.gz
 RUN tar -xzf zeromq-4.1.5.tar.gz
 RUN cd zeromq-4.1.5
+RUN ls -l
 RUN ./autogen.sh
 RUN ./configure
 RUN make
