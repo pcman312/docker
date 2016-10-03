@@ -1,7 +1,7 @@
 FROM centos:centos7
 MAINTAINER pcman312 <pcman312@gmail.com>
 
-RUN cd /tmp/
+WORKDIR /tmp/
 
 # Get golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
@@ -12,10 +12,10 @@ ENV PATH="/usr/local/go/bin/:${PATH}"
 RUN yum install libtool gcc gcc-c++ make -y > /dev/null
 
 # Install zeromq
-RUN cd /opt/
+WORKDIR /opt/
 RUN curl -LOs https://github.com/zeromq/zeromq4-1/releases/download/v4.1.5/zeromq-4.1.5.tar.gz
 RUN tar -xzf zeromq-4.1.5.tar.gz
-RUN cd zeromq-4.1.5
+WORKDIR /opt/zeromq-4.1.5
 RUN ls -l
 RUN ./autogen.sh
 RUN ./configure
