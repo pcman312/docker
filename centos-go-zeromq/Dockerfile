@@ -24,4 +24,4 @@ RUN make
 RUN make install
 RUN echo /usr/local/lib > /etc/ld.so.conf.d/local.conf
 RUN ldconfig
-COPY src/libzmq.pc /usr/lib64/pkgconfig/
+RUN cp ./src/libzmq.pc /usr/lib64/pkgconfig/
