@@ -29,6 +29,10 @@ RUN echo /usr/local/lib > /etc/ld.so.conf.d/local.conf
 RUN ldconfig
 RUN cp ./src/libzmq.pc /usr/lib64/pkgconfig/
 
+# Install Ruby in order to get fpm
+RUN yum install ruby ruby-devel -y
+RUN gem install fpm
+
 # Install ansible
 RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
 RUN rpm -ivh epel-release-7-8.noarch.rpm
