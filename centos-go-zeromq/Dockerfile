@@ -3,7 +3,7 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 
 WORKDIR /tmp/
 
-# Get golang
+# Install golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
 ENV PATH="/usr/local/go/bin/:${PATH}"
@@ -25,3 +25,8 @@ RUN make install
 RUN echo /usr/local/lib > /etc/ld.so.conf.d/local.conf
 RUN ldconfig
 RUN cp ./src/libzmq.pc /usr/lib64/pkgconfig/
+
+# Install ansible
+RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+RUN rpm -ivh epel-release-7-8.noarch.rpm
+RUN yum install ansible -y
