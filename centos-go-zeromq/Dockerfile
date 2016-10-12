@@ -3,6 +3,9 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 
 WORKDIR /tmp/
 
+# Install tools
+RUN yum install wget -y
+
 # Install golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
