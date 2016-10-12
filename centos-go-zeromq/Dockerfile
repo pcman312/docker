@@ -29,8 +29,8 @@ RUN echo /usr/local/lib > /etc/ld.so.conf.d/local.conf
 RUN ldconfig
 RUN cp ./src/libzmq.pc /usr/lib64/pkgconfig/
 
-# Install Ruby in order to get fpm
-RUN yum install ruby ruby-devel -y
+# Install fpm and rpmbuild
+RUN yum install ruby ruby-devel rpm-build -y
 RUN gem install fpm
 
 # Install ansible
