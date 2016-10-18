@@ -4,7 +4,7 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 WORKDIR /tmp/
 
 # Install tools
-RUN yum install wget -y
+RUN yum install wget openssh-clients rsync -y
 
 # Install golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
@@ -37,3 +37,18 @@ RUN gem install fpm
 RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
 RUN rpm -ivh epel-release-7-8.noarch.rpm
 RUN yum install ansible -y
+
+# Install awscli
+WORKDIR /tmp
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python2.7 get-pip.py
+RUN pip install awscli
+
+# Install jq
+RUN wget http://stedolan.github.io/jq/download/linux64/jq
+RUN chmod +x ./jq
+RUN mv ./jq /usr/bin
+
+# Set up .ssh folders
+RUN mkdir -p /root/.ssh
+RUN mkdir -p /root/.ssh/sockets
