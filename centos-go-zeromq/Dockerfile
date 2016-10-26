@@ -4,7 +4,7 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 WORKDIR /tmp/
 
 # Install tools
-RUN yum install wget openssh-clients rsync -y
+RUN yum install wget openssh-clients rsync epel-release npm -y
 
 # Install golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
@@ -48,7 +48,3 @@ RUN pip install awscli
 RUN wget http://stedolan.github.io/jq/download/linux64/jq
 RUN chmod +x ./jq
 RUN mv ./jq /usr/bin
-
-# Set up .ssh folders
-RUN mkdir -p /root/.ssh
-RUN mkdir -p /root/.ssh/sockets
