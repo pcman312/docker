@@ -52,3 +52,7 @@ RUN mv ./jq /usr/bin
 # Set up .ssh folders
 RUN mkdir -p /root/.ssh
 RUN mkdir -p /root/.ssh/sockets
+
+# Setup go-rice
+RUN go get github.com/GeertJohan/go.rice
+RUN go get github.com/GeertJohan/go.rice/rice
