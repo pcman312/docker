@@ -4,7 +4,7 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 WORKDIR /tmp/
 
 # Install tools
-RUN yum install wget openssh-clients rsync epel-release npm -y
+RUN yum install wget openssh-clients rsync epel-release npm git -y
 
 # Install golang
 RUN curl -LOs http://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
