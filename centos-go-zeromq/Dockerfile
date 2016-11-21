@@ -8,12 +8,11 @@ RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noa
 RUN rpm -ivh epel-release-7-8.noarch.rpm
 
 # Install tools & libraries
-# Tools
-# Prereqs for zmq
-# Prereqs for fpm
-RUN yum install wget openssh-clients rsync git ansible \
-libtool gcc gcc-c++ make \
+RUN yum install wget rsync git ansible \
+zip openssh-clients \
+libtool gcc gcc-c++ make rpm-build \
 ruby ruby-devel \
+npm \
 -y
 RUN gem install fpm
 
@@ -48,5 +47,8 @@ RUN chmod +x ./jq
 RUN mv ./jq /usr/bin
 
 # Set up .ssh folders
-RUN mkdir -p /root/.ssh
 RUN mkdir -p /root/.ssh/sockets
+
+# Set up user(s)
+RUN useradd blackbird
+RUN mkdir -p /home/blackbird
