@@ -3,12 +3,13 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 
 WORKDIR /tmp/
 
+RUN yum install epel-release -y
 RUN yum install git \
-zip wget \
+zip wget bc \
 libtool gcc gcc-c++ make rpm-build \
 ruby ruby-devel \
 npm \
--y -v
+-y
 
 RUN gem install fpm
 
@@ -41,5 +42,9 @@ RUN mkdir -p /etc/consul.d/{server,bootstrap}
 RUN mv consul /usr/local/bin
 COPY server_config.json /etc/consul.d/server/config.json
 COPY bootstrap_config.json /etc/consul.d/bootstrap/config.json
+
+# Set up user(s)
+RUN useradd blackbird
+RUN mkdir -p /home/blackbird
 
 WORKDIR /tmp

@@ -1,0 +1,14 @@
+{
+    "node_name": "consul-for-jarvis-builds",
+    "datacenter": "logrhythm",
+    "data_dir": "/var/consul",
+    "log_level": "INFO",
+    "enable_syslog": false,
+    "server": true,
+    "rejoin_after_leave": false,
+    "leave_on_terminate": false,
+    "bind_addr": "127.0.0.1",
+    "addresses": {
+        "http": "0.0.0.0"
+    }
+}
