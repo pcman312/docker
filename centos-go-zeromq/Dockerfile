@@ -4,8 +4,8 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 WORKDIR /tmp/
 
 # Setup stuff for ansible
-RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
-RUN rpm -ivh epel-release-7-8.noarch.rpm
+RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+RUN rpm -ivh epel-release-7-9.noarch.rpm
 
 # Install tools & libraries
 RUN yum install wget rsync git ansible \
