@@ -4,7 +4,7 @@ MAINTAINER pcman312 <pcman312@gmail.com>
 WORKDIR /tmp/
 
 # Setup stuff for ansible
-RUN curl -O http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+RUN curl -O http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-9.noarch.rpm
 RUN rpm -ivh epel-release-7-9.noarch.rpm
 
 # Install tools & libraries
