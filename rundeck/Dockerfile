@@ -8,7 +8,7 @@ RUN yum install -y wget which rsync git openssh-clients java
 # Install Rundeck CLI
 RUN wget https://bintray.com/rundeck/rundeck-rpm/rpm -O bintray.repo
 RUN mv bintray.repo /etc/yum.repos.d/
-RUN yum install rundeck-cli
+RUN yum install -y rundeck-cli
 
 # Install jq
 RUN wget http://stedolan.github.io/jq/download/linux64/jq
